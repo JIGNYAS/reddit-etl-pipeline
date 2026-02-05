@@ -1,0 +1,152 @@
+[
+    {
+        "title": "Should I take up this gig?",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qvqvyc/should_i_take_up_this_gig/",
+        "published": "2026-02-04T15:03:31+00:00",
+        "author": "/u/brokeRichieRich"
+    },
+    {
+        "title": "Advanced Kafka Schema Registry Patterns: Multi-Event Topics",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qvpix1/advanced_kafka_schema_registry_patterns/",
+        "published": "2026-02-04T14:09:12+00:00",
+        "author": "/u/JanSiekierski"
+    },
+    {
+        "title": "Financial engineering at its finest",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qvoj0i/financial_engineering_at_its_finest/",
+        "published": "2026-02-04T13:27:12+00:00",
+        "author": "/u/SignalMine594"
+    },
+    {
+        "title": "From business analyst to data engineering/science.. worth it or too late?",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qvjogq/from_business_analyst_to_data_engineeringscience/",
+        "published": "2026-02-04T09:03:50+00:00",
+        "author": "/u/VERY_LUCKY_BAMBOO"
+    },
+    {
+        "title": "Data Engineering as an After Thought",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qvizak/data_engineering_as_an_after_thought/",
+        "published": "2026-02-04T08:20:10+00:00",
+        "author": "/u/uncertainschrodinger"
+    },
+    {
+        "title": "DBT orchestrator",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qvi7fu/dbt_orchestrator/",
+        "published": "2026-02-04T07:32:19+00:00",
+        "author": "/u/Free-Bear-454"
+    },
+    {
+        "title": "Can the 'modern' data stack be fixed?",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qvi7ae/can_the_modern_data_stack_be_fixed/",
+        "published": "2026-02-04T07:32:04+00:00",
+        "author": "/u/Significant-North356"
+    },
+    {
+        "title": "wage compression",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qveu1c/wage_compression/",
+        "published": "2026-02-04T04:30:38+00:00",
+        "author": "/u/turboDividend"
+    },
+    {
+        "title": "Need Advice. Tech Stack for Organization that lack of human resource.",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qvd8zc/need_advice_tech_stack_for_organization_that_lack/",
+        "published": "2026-02-04T03:16:55+00:00",
+        "author": "/u/GriffithLikeYouGF"
+    },
+    {
+        "title": "People who moved from DE to Analytics Engineering",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qv7786/people_who_moved_from_de_to_analytics_engineering/",
+        "published": "2026-02-03T22:58:09+00:00",
+        "author": "/u/PremierLeague2O"
+    },
+    {
+        "title": "Not providing schema evolution in bronze",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qv74oi/not_providing_schema_evolution_in_bronze/",
+        "published": "2026-02-03T22:55:23+00:00",
+        "author": "/u/Personal-Quote5226"
+    },
+    {
+        "title": "Fivetran cut off service without warning over a billing error",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qv5w7i/fivetran_cut_off_service_without_warning_over_a/",
+        "published": "2026-02-03T22:07:31+00:00",
+        "author": "/u/DigitalDelusion"
+    },
+    {
+        "title": "Column-level lineage for 50K+ Snowflake tables (Solving problems to make new problems)",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qv3q0b/columnlevel_lineage_for_50k_snowflake_tables/",
+        "published": "2026-02-03T20:46:38+00:00",
+        "author": "/u/Sorry-Secret4935"
+    },
+    {
+        "title": "DoorDash Sr Data Engineer",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qv0iyl/doordash_sr_data_engineer/",
+        "published": "2026-02-03T18:49:14+00:00",
+        "author": "/u/Outside_Reason6707"
+    },
+    {
+        "title": "Looking for feedback on a self-deployed web interface for exploring BigQuery data by asking questions in natural language",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1quz6kq/looking_for_feedback_on_a_selfdeployed_web/",
+        "published": "2026-02-03T18:01:53+00:00",
+        "author": "/u/Beneficial-Flow-2105"
+    },
+    {
+        "title": "DAMA CDMP DQ",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1quz677/dama_cdmp_dq/",
+        "published": "2026-02-03T18:01:31+00:00",
+        "author": "/u/sweetestAlpha98"
+    },
+    {
+        "title": "Are Python UDFs in Spark still less efficient than UDFs written in Scala or Java?",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1quxzvb/are_python_udfs_in_spark_still_less_efficient/",
+        "published": "2026-02-03T17:20:05+00:00",
+        "author": "/u/Lastrevio"
+    },
+    {
+        "title": "Alternatives after MotherDuck Price Hike",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1quwnj3/alternatives_after_motherduck_price_hike/",
+        "published": "2026-02-03T16:31:53+00:00",
+        "author": "/u/EmbarrassedCod53"
+    },
+    {
+        "title": "Are we all becoming \"Full Stack-something\" nowadays?",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1quvm92/are_we_all_becoming_full_stacksomething_nowadays/",
+        "published": "2026-02-03T15:54:07+00:00",
+        "author": "/u/HungryRefrigerator24"
+    },
+    {
+        "title": "Tired of Airflow overhead for local dev? I built a minimal, local-first CLI orchestrator.",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1quvcv4/tired_of_airflow_overhead_for_local_dev_i_built_a/",
+        "published": "2026-02-03T15:44:24+00:00",
+        "author": "/u/Enlightened-Zeno"
+    },
+    {
+        "title": "Where to apply for jobs besides LinkedIn?",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1quv70v/where_to_apply_for_jobs_besides_linkedin/",
+        "published": "2026-02-03T15:38:25+00:00",
+        "author": "/u/LoudSphinx517"
+    },
+    {
+        "title": "Lessons learned from building AI analytics agents: build for chaos",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1quu7rb/lessons_learned_from_building_ai_analytics_agents/",
+        "published": "2026-02-03T15:01:45+00:00",
+        "author": "/u/Ramirond"
+    },
+    {
+        "title": "Weird position, don't know where to go from here",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1quu6j3/weird_position_dont_know_where_to_go_from_here/",
+        "published": "2026-02-03T15:00:33+00:00",
+        "author": "/u/yimmyyim"
+    },
+    {
+        "title": "Secure who can trigger a Teams webhook workflow when source is Snowflake webhook?",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qut137/secure_who_can_trigger_a_teams_webhook_workflow/",
+        "published": "2026-02-03T14:14:46+00:00",
+        "author": "/u/No_Journalist_9632"
+    },
+    {
+        "title": "Data with zach",
+        "link": "https://www.reddit.com/r/dataengineering/comments/1qunozk/data_with_zach/",
+        "published": "2026-02-03T09:40:48+00:00",
+        "author": "/u/soyboisixty9"
+    }
+]
