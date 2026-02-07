@@ -8,6 +8,7 @@ renamed as (
     select
         raw_data:title::string as title,
         raw_data:author::string as author,
+        raw_data:domain::string as domain,
         raw_data:link::string as post_url,
         raw_data:published::string as published_raw,
         try_to_timestamp(raw_data:published::string) as published_date
