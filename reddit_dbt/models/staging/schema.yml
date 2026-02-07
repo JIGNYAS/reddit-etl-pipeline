@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_reddit_posts
+    description: "Cleaned version of the raw Reddit posts"
+    columns:
+      - name: post_url
+        description: "The unique URL of the Reddit post"
+        tests:
+          - unique
+          - not_null
+
+      - name: title
+        tests:
+          - not_null

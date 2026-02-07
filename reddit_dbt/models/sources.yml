@@ -1,0 +1,7 @@
+version: 2
+sources:
+  - name: reddit
+    database: reddit_db
+    schema: raw
+    tables:
+      - name: reddit_posts
