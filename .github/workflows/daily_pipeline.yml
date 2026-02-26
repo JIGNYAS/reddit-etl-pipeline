@@ -40,7 +40,22 @@ jobs:
           python load_to_snowflake.py
 
       - name: 🏗️ Run dbt Transformations
-        # UPDATE 'reddit_dbt' to whatever your dbt folder is actually named!
         run: |
           cd reddit_dbt
-          dbt run
+          cat << EOF > profiles.yml
+          reddit_dbt:
+            target: dev
+            outputs:
+              dev:
+                type: snowflake
+                account: $SNOWFLAKE_ACCOUNT
+                user: $SNOWFLAKE_USER
+                password: $SNOWFLAKE_PASSWORD
+                role: ACCOUNTADMIN
+                database: $SNOWFLAKE_DATABASE
+                warehouse: $SNOWFLAKE_WAREHOUSE
+                schema: $SNOWFLAKE_SCHEMA
+                threads: 1
+                client_session_keep_alive: False
+          EOF
+          dbt run --profiles-dir .
