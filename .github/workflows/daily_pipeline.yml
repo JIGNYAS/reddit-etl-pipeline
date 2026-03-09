@@ -48,13 +48,13 @@ jobs:
             outputs:
               dev:
                 type: snowflake
-                account: $SNOWFLAKE_ACCOUNT
-                user: $SNOWFLAKE_USER
-                password: $SNOWFLAKE_PASSWORD
-                role: ACCOUNTADMIN
-                database: $SNOWFLAKE_DATABASE
-                warehouse: $SNOWFLAKE_WAREHOUSE
-                schema: $SNOWFLAKE_SCHEMA
+                account: "${{ env.SNOWFLAKE_ACCOUNT }}"
+                user: "${{ env.SNOWFLAKE_USER }}"
+                password: "${{ env.SNOWFLAKE_PASSWORD }}"
+                role: "ACCOUNTADMIN"
+                database: "${{ env.SNOWFLAKE_DATABASE }}"
+                warehouse: "${{ env.SNOWFLAKE_WAREHOUSE }}"
+                schema: "${{ env.SNOWFLAKE_SCHEMA }}"
                 threads: 1
                 client_session_keep_alive: False
           EOF
