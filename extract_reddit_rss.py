@@ -1,5 +1,6 @@
 import feedparser
 import json
+from urllib.parse import urlparse
 
 rss_url = "https://www.reddit.com/r/dataengineering/new/.rss"
 feed = feedparser.parse(rss_url)
@@ -11,7 +12,8 @@ for entry in feed.entries:
     'title': entry.title,
     'link': entry.link,
     'published': entry.published,
-    'author': entry.author
+    'author': entry.author,
+    'domain': urlparse(entry.link).netloc
     }
     data_to_extract.append(post)    
 

@@ -27,12 +27,19 @@ try:
     query = "SELECT * FROM reddit_db.dbt_transform.daily_posts_count ORDER BY post_date"
     cur.execute(query)
     df = cur.fetch_pandas_all()
-    
+
     col1, col2 = st.columns(2)
-    
-    col1.metric("total posts", df['TOTAL_POSTS'].sum())
-    col2.metric("unique authors", df['UNIQUE_AUTHORS'].sum())
+
+    col1.metric("Total Posts", df['TOTAL_POSTS'].sum())
+    col2.metric("Peak Daily Authors", df['UNIQUE_AUTHORS'].max())
     st.bar_chart(df, x='POST_DATE', y='TOTAL_POSTS', width=600, height=400)
 
 except Exception as e:
     st.error(f"Error: {e}")
+
+finally:
+    try:
+        cur.close()
+        conn.close()
+    except Exception:
+        pass

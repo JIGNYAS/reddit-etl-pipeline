@@ -5,5 +5,4 @@ pandas
 pyarrow
 streamlit
 python-dotenv
-feedparser
 dbt-snowflake

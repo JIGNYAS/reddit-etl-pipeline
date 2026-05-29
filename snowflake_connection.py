@@ -6,9 +6,9 @@ load_dotenv()
 
 USER = os.getenv('SNOWFLAKE_USER')
 PASSWORD = os.getenv('SNOWFLAKE_PASSWORD')
-WAREHOUSE = os.getenv('WAREHOUSE')
-DATABASE = os.getenv('DATABASE')
-SCHEMA = os.getenv('SCHEMA')
+WAREHOUSE = os.getenv('SNOWFLAKE_WAREHOUSE')
+DATABASE = os.getenv('SNOWFLAKE_DATABASE')
+SCHEMA = os.getenv('SNOWFLAKE_SCHEMA')
 ACCOUNT = os.getenv('SNOWFLAKE_ACCOUNT')
 
 try:
