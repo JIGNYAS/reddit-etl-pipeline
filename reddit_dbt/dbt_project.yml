@@ -31,6 +31,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   reddit_dbt:
-    # Config indicated by + and applies to all files under models/example/
-    example:
+    # Staging models are lightweight views over raw.
+    staging:
       +materialized: view
+    # Marts are queried repeatedly by the dashboard, so build them as tables.
+    marts:
+      +materialized: table

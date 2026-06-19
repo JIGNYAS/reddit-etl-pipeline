@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest # A fresh Linux server
 
     # 3. Load the keys from GitHub Secrets into the server's environment
-    # 3. Load the keys from GitHub Secrets into the server's environment
     env:
       SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
       SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
@@ -20,6 +19,7 @@ jobs:
       SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
       SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
       SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
+      SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
 
     steps:
       - name: 📥 Checkout Code
@@ -51,11 +51,11 @@ jobs:
                 account: "${{ env.SNOWFLAKE_ACCOUNT }}"
                 user: "${{ env.SNOWFLAKE_USER }}"
                 password: "${{ env.SNOWFLAKE_PASSWORD }}"
-                role: "ACCOUNTADMIN"
+                role: "${{ env.SNOWFLAKE_ROLE }}"
                 database: "${{ env.SNOWFLAKE_DATABASE }}"
                 warehouse: "${{ env.SNOWFLAKE_WAREHOUSE }}"
                 schema: "${{ env.SNOWFLAKE_SCHEMA }}"
                 threads: 1
                 client_session_keep_alive: False
           EOF
-          dbt run --profiles-dir .
+          dbt build --profiles-dir .

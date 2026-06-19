@@ -1,4 +1,13 @@
-.env 
+.env
 venv/
+.venv/
 __pycache__/
 logs/
+
+# Generated extractor output - regenerated on every run, should not be tracked.
+reddit_de_posts.json
+
+# dbt build artifacts
+reddit_dbt/target/
+reddit_dbt/dbt_packages/
+reddit_dbt/logs/
