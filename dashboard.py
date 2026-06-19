@@ -1,38 +1,35 @@
-import streamlit as st
-import snowflake.connector
-import pandas as pd
 import os
-from dotenv import load_dotenv
 
-# load environment variables from .env file
-load_dotenv()
+import streamlit as st
 
-# connect to Snowflake
-def init_connection():
-    return snowflake.connector.connect(
-        user=os.getenv("SNOWFLAKE_USER"),
-        password=os.getenv("SNOWFLAKE_PASSWORD"),
-        account=os.getenv("SNOWFLAKE_ACCOUNT"),
-        warehouse=os.getenv("SNOWFLAKE_WAREHOUSE"),
-        database=os.getenv("SNOWFLAKE_DATABASE"),
-        schema=os.getenv("SNOWFLAKE_SCHEMA"),
-        
-    )
+from connection import get_connection
+
+# dbt builds models into the database/schema from its profile, which read the same
+# SNOWFLAKE_* env vars. Reading them here (instead of a hardcoded "dbt_transform"
+# schema that nothing creates) guarantees the dashboard points at what dbt built.
+DATABASE = os.getenv("SNOWFLAKE_DATABASE")
+SCHEMA = os.getenv("SNOWFLAKE_SCHEMA")
 
 st.title("📊 Reddit Analytics Dashboard")
 
 try:
-    conn = init_connection()
+    conn = get_connection()
     cur = conn.cursor()
-    query = "SELECT * FROM reddit_db.dbt_transform.daily_posts_count ORDER BY post_date"
-    cur.execute(query)
-    df = cur.fetch_pandas_all()
-    
+
+    df = cur.execute(
+        f"SELECT * FROM {DATABASE}.{SCHEMA}.daily_posts_count ORDER BY post_date"
+    ).fetch_pandas_all()
+
+    # True distinct authors over the whole period. Summing the mart's per-day
+    # UNIQUE_AUTHORS would double-count anyone active on more than one day.
+    unique_authors = cur.execute(
+        f"SELECT COUNT(DISTINCT author) FROM {DATABASE}.{SCHEMA}.stg_reddit_posts"
+    ).fetchone()[0]
+
     col1, col2 = st.columns(2)
-    
-    col1.metric("total posts", df['TOTAL_POSTS'].sum())
-    col2.metric("unique authors", df['UNIQUE_AUTHORS'].sum())
-    st.bar_chart(df, x='POST_DATE', y='TOTAL_POSTS', width=600, height=400)
+    col1.metric("Total posts", int(df["TOTAL_POSTS"].sum()))
+    col2.metric("Unique authors", int(unique_authors))
+    st.bar_chart(df, x="POST_DATE", y="TOTAL_POSTS", width=600, height=400)
 
 except Exception as e:
     st.error(f"Error: {e}")

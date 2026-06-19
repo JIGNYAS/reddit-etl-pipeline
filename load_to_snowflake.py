@@ -1,46 +1,35 @@
-from dotenv import load_dotenv
-import os
-import snowflake.connector
+"""Load extracted Reddit posts from the local JSON file into the Snowflake raw table."""
+
 import json
+import sys
 
-load_dotenv()
+from connection import get_connection
 
-USER = os.getenv('SNOWFLAKE_USER')
-PASSWORD = os.getenv('SNOWFLAKE_PASSWORD')
-WAREHOUSE = os.getenv('WAREHOUSE')
-DATABASE = os.getenv('DATABASE')
-SCHEMA = os.getenv('SCHEMA')
-ACCOUNT = os.getenv('SNOWFLAKE_ACCOUNT')
+INPUT_FILE = "reddit_de_posts.json"
+INSERT_SQL = "INSERT INTO reddit_db.raw.reddit_posts (raw_data) SELECT PARSE_JSON(%s)"
 
 
-try:
-    with open('reddit_de_posts.json','r') as json_file:
-        data = json.load(json_file)
+def main():
+    with open(INPUT_FILE, "r") as json_file:
+        posts = json.load(json_file)
 
-        conn = snowflake.connector.connect(
-                user=USER,
-                password=PASSWORD,
-                account=ACCOUNT,
-                warehouse=WAREHOUSE,
-                database=DATABASE,
-                schema=SCHEMA )
-        cur = conn.cursor()
-        
-        for post in data:
-
-            json_string = json.dumps(post)
-            sql_query = "INSERT INTO reddit_db.raw.reddit_posts (raw_data) SELECT PARSE_JSON(%s)"
-            cur.execute(sql_query,(json_string,))
-        
-        conn.commit()
-        print("Data successfully loaded to Snowflake")
-        
-except Exception as e:
-    print(f"Error : {e}")
-
-finally:
+    conn = get_connection()
     try:
-        cur.close()
+        cur = conn.cursor()
+        for post in posts:
+            # Bound parameter (not string concat) -> no SQL injection / quoting bugs.
+            cur.execute(INSERT_SQL, (json.dumps(post),))
+        conn.commit()
+        print(f"Loaded {len(posts)} posts to Snowflake")
+    finally:
         conn.close()
+
+
+if __name__ == "__main__":
+    try:
+        main()
     except Exception as e:
-        print(f"Error closing connection: {e}")
+        # Exit non-zero so a failed load turns the CI job RED instead of
+        # printing an error and reporting success.
+        print(f"Load failed: {e}", file=sys.stderr)
+        sys.exit(1)

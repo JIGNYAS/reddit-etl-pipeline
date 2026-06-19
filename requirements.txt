@@ -1,9 +1,7 @@
 feedparser==6.0.12
-sgmllib3k==1.0.0
-snowflake-connector-python
-pandas
-pyarrow
-streamlit
-python-dotenv
-feedparser
-dbt-snowflake
+snowflake-connector-python==4.2.0
+pandas==2.3.3
+pyarrow==23.0.0
+streamlit==1.54.0
+python-dotenv==1.2.1
+dbt-snowflake==1.11.1

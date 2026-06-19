@@ -1,0 +1,10 @@
+.env
+venv/
+.venv/
+__pycache__/
+.git/
+logs/
+reddit_dbt/target/
+reddit_dbt/dbt_packages/
+reddit_de_posts.json
+*.md
